@@ -12,7 +12,7 @@
                 <h1 class="text-3xl font-black"> Pagina </h1>
                 <nav>
                     <a href="#" class="font-bold uppercase text-gray-600">Login</a>
-                    <a href="#" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
+                    <a href="/crear-cuenta" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
                 </nav>
             </div>
         </header>

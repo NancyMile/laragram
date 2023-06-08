@@ -6,9 +6,25 @@
         <title>Pagina - @yield('titulo')</title>
         @vite('resources/css/app.css')
     </head>
-    <body>
-       <h1 class="text-4xl font-extrabold ">@yield('titulo')</h1>
-        <hr> 
-       @yield('contenido')
+    <body class="bg-gray-100">
+        <header class="p-5 border-b bg-withe shadow">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-3xl font-black"> Pagina </h1>
+                <nav>
+                    <a href="#" class="font-bold uppercase text-gray-600">Login</a>
+                    <a href="#" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container mx-auto mt-10">
+            <h2 class="font-black text-center text-3xl mb-10">
+                @yield('titulo')
+            </h2>
+            @yield('contenido')
+        </main>
+        <footer class="text-center font-bold p-5 text-gray-500500 uppercase">
+            Nancy S Todo los derechos reservados. {{ now()->year}}
+        </footer>
     </body>
 </html>

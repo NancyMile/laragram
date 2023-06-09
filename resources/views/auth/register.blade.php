@@ -16,7 +16,14 @@
                     <label for="name" class="mb-2 text-gray-500 uppercase block font-bold">
                         Nombre
                     </label>
-                    <input type="text" id="name" name="name" placeholder="Tu Nombre" class=" border p-3  w-full rounded-lg"/>
+                    <input type="text" id="name" name="name" placeholder="Tu Nombre" 
+                        class=" border p-3  w-full rounded-lg @error('name') border-red-500 @enderror"
+                        value="{{old('name')}}" />
+                    @error('name')
+                    <p class="bg-red-500 text-white rounded-lg my-2 text-sm p-2 text-center">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label for="username" class="mb-2 text-gray-500 uppercase block font-bold">

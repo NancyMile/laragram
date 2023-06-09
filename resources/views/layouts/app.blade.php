@@ -10,10 +10,18 @@
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black"> Pagina </h1>
-                <nav>
-                    <a href="#" class="font-bold uppercase text-gray-600">Login</a>
-                    <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
-                </nav>
+                @auth
+                    <nav>
+                        <a href="#" class="font-bold text-gray-600">Hola <span class="font-normal">{{ auth()->user()->username }}</span></a>
+                        <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600">Cerrar Session</a>
+                    </nav>
+                @endauth
+                @guest
+                    <nav>
+                        <a href="#" class="font-bold uppercase text-gray-600">Login</a>
+                        <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
+                    </nav>
+                @endguest
             </div>
         </header>
 

@@ -23,7 +23,7 @@
             </h2>
             @yield('contenido')
         </main>
-        <footer class="text-center font-bold p-5 text-gray-500500 uppercase">
+        <footer class="text-center font-bold p-5 text-gray-500500 uppercase mt-10">
             Nancy S Todo los derechos reservados. {{ now()->year}}
         </footer>
     </body>

@@ -11,15 +11,19 @@
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black"> Pagina </h1>
                 @auth
-                    <nav>
+                    <nav class="flex gap-2 items-center">
                         <a href="#" class="font-bold text-gray-600">Hola <span class="font-normal">{{ auth()->user()->username }}</span></a>
-                        <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600">Cerrar Session</a>
+                        <!--  forma  mas segura de cerrar session-->
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button  type="submit" class="font-bold uppercase text-gray-600 text-sm"> Cerar Session</button>
+                        </form>
                     </nav>
                 @endauth
                 @guest
-                    <nav>
-                        <a href="#" class="font-bold uppercase text-gray-600">Login</a>
-                        <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600">Crear Cuenta</a>
+                    <nav class="flex gap-2 items-center">
+                        <a href="{{ route('login')}}" class="font-bold uppercase text-gray-600 text-sm">Login</a>
+                        <a href="{{ route('register') }}" class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
                     </nav>
                 @endguest
             </div>

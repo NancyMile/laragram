@@ -16,8 +16,12 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
+        //$request->remember para mantener la session activa
+        //dd($request->remember);
+
         // chequear la authenticacion
-        if(!auth()->attempt($request->only('email','password'))){
+        if(!auth()->attempt($request->only('email','password'), $request->remember)){
             //retorno un mensaje de error
             return back()->with('mensaje','credenciales incorrectas');
         }

@@ -10,8 +10,13 @@
             <img src="{{ asset('img/login.jpg')}}" alt="login de usuario">
         </div>
         <div class="md:w-4/12 bg-white p-6 shadow-xl">
-            <form novalidate>
+            <form  action="{{ route('login')}}" method="POST" novalidate>
                 @csrf
+                @if (session('mensaje'))
+                    <p class=" text-white bg-red-500 p-2 rounded-lg text-center text-sm my-2">
+                        {{ session('mensaje') }}
+                    </p>
+                @endif
                 <div class="mb-5">
                     <label for="email" class="mb-2 text-gray-500 uppercase block font-bold">
                         Email

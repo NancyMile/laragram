@@ -56,8 +56,7 @@
                         Password
                     </label>
                     <input type="password" id="password" name="password" placeholder="Tu Password" 
-                        class=" border p-3  w-full rounded-lg @error('password') border-red-500 @enderror"
-                        value="{{old('password')}}"/>
+                        class=" border p-3  w-full rounded-lg @error('password') border-red-500 @enderror"/>
                     @error('password')
                     <p class=" text-white bg-red-500 p-2 rounded-lg text-center text-sm my-2">
                         {{ $message }}

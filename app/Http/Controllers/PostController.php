@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        dd('desde muro');
+        // auth helper que verifica que usuario esta autenticado actualmente
+        dd(auth()->user());
     }
 }

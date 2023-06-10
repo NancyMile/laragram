@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pagina - @yield('titulo')</title>
         @vite('resources/css/app.css')
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">

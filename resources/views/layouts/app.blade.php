@@ -18,7 +18,7 @@
                             </svg>
                             Crear
                         </a>
-                        <a href="#" class="font-bold text-gray-600">Hola <span class="font-normal">{{ auth()->user()->username }}</span></a>
+                        <a href="{{ route('posts.index',auth()->user()->username)}}" class="font-bold text-gray-600">Hola <span class="font-normal">{{ auth()->user()->username }}</span></a>
                         <!--  forma  mas segura de cerrar session-->
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

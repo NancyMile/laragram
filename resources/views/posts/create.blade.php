@@ -42,6 +42,14 @@
                         </p>
                     @enderror
                 </div>
+                <div class="mb-5">
+                    <input type="hidden" name="imagen" value="{{ old('imagen') }}"/>
+                    @error('imagen')
+                        <p class="bg-red-500 text-white rounded-lg my-2 text-sm p-2 text-center">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
                 <input type="submit" value="Publicar"  class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold p-3 text-white rounded-lg w-full"/>
             </form>
         </div>

@@ -20,6 +20,6 @@ class Post extends Model
 
     public function user(){
         //un post pertenece a un usuario y  solo quiereo que devuelva el name and username
-        return $this->belongsTo(User::class)->select(['nome','username']);
+        return $this->belongsTo(User::class)->select(['name','username']);
     }
 }

@@ -41,6 +41,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="my-5">
+                {{ $posts->links() }}
+            </div>
         @else
             <p class="text-sm text-gray-600 uppercase text-center font-bold"> No hay posts</p>
         @endif

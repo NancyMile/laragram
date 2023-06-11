@@ -38,12 +38,12 @@ class PostController extends Controller
         ]);
 
         //crear el post
-        Post::create([
-            'titulo' => $request->titulo,
-            'descripcion' => $request->descripcion,
-            'imagen' => $request->imagen,
-            'user_id' => auth()->user()->id
-        ]);
+        // Post::create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id' => auth()->user()->id
+        // ]);
 
         //otra forma de crear
         // $post = new Post;
@@ -53,6 +53,13 @@ class PostController extends Controller
         // $post->user_id = auth()->user()->id;
         // $post->save();
 
+        //esta es otraforma de crear  una vez  las relaciones estan establecidas
+        $request->user()->posts()->create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $request->imagen,
+            'user_id' => auth()->user()->id
+        ]);
 
         return redirect()->route('posts.index',auth()->user()->username);
     }

@@ -10,8 +10,10 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        //ejecute  el  middleware de auth
-        $this->middleware('auth');
+        //ejecute el middleware de auth
+        // con exept  le  estamos diciendo que restrinja el acceso para no autenticados
+        // en todos  los metodos exepto los incluidos en except
+        $this->middleware('auth')->except('show','index');
     }
 
     public function index(User $user){

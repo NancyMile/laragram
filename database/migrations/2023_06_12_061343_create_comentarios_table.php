@@ -16,8 +16,8 @@ return new class extends Migration
 
             //relacion de muchos a muchos muchos usuarios muchos posts
             //tambien conocido como tabla pivote
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->string('comentario');
             $table->timestamps();
         });

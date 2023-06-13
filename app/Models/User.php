@@ -74,4 +74,9 @@ class User extends Authenticatable
 
 
     //almacenar los que seguimos
+    //seria muy similar a followers  pero ahora estamos trayendo es a los que seguimos
+    // en este caso seria la misma tabla pero la columna follower_id primero
+    public function following(){
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
 }

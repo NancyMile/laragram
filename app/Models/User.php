@@ -60,10 +60,18 @@ class User extends Authenticatable
     //almacena los seguidores de un usuario
     public function followers(){
         //un usuario puede tener muchos seguidores
-        // esto va a guardar en la  tabla followes user_is, Follower_id
-        // com los datos  vienen de la tabla  user y nuestratabla se llama followers hay que especicicarla
+        // esto va a guardar en la  tabla followes user_id, Follower_id
+        // como los datos  vienen de la tabla  user y nuestra tabla se llama followers hay que especicicarla
         return $this->belongsToMany(User::class, 'followers', 'user_id','follower_id');
     }
+
+    //check si un usuario ya etsa siguiendo a otro
+    public function siguiendo(User $user){
+        // en este caso user es el usuario que esta visitando el muro osea el autenticado
+        // y this viene ha ser el usuario que estamos visitando
+        return $this->followers->contains($user->id);
+    }
+
 
     //almacenar los que seguimos
 }

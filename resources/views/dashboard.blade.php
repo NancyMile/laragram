@@ -25,7 +25,7 @@
                     @endauth
                 </div>
                 <p class="text-grey-800 text-sm mb-3 font-bold mt-5">
-                    0
+                    {{ $user->followers->count() }}
                     <span class="font-normal">Seguidores</span>
                 </p>
                 <p class="text-grey-800 text-sm mb-3 font-bold">
@@ -42,7 +42,7 @@
                             @csrf
                             <input type="submit" value="Seguir" class="bg-blue-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>
                         </form>
-                        <form action="" method="POST">
+                        <form action="{{ route('users.unfollow', $user) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <input type="submit" value="No Seguir" class="bg-red-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>

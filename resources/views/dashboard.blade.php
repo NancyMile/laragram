@@ -37,16 +37,17 @@
                     <span class="font-normal">Post</span>
                 </p>
                 @auth
-                    <form action="" method="POST">
-                        @csrf
-                        <input type="submit" value="Seguir" class="bg-blue-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>
-                    </form>
-
-                    <form action="" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <input type="submit" value="No Seguir" class="bg-red-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>
-                    </form>
+                    @if ( $user->id !== auth()->user()->id )
+                        <form action="{{ route('users.follow', $user) }}" method="POST">
+                            @csrf
+                            <input type="submit" value="Seguir" class="bg-blue-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>
+                        </form>
+                        <form action="" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input type="submit" value="No Seguir" class="bg-red-600 text-white rounded-lg uppercase font-bold text-sm py-1 px-3 cursor-pointer"/>
+                        </form>
+                    @endif
                 @endauth
             </div>
         </div>

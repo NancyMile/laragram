@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Like;
 use App\Models\Post;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -48,5 +49,10 @@ class User extends Authenticatable
     public function posts(){
         //relacion de one to many
         return $this->hasMany(Post::class);
+    }
+
+    public function likes(){
+        //un usuario puede tener multiples likes, puede dar like en variias publicaciones
+        return $this->hasMany(Like::class);
     }
 }

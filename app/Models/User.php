@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\Follower;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,4 +56,14 @@ class User extends Authenticatable
         //un usuario puede tener multiples likes, puede dar like en variias publicaciones
         return $this->hasMany(Like::class);
     }
+
+    //almacena los seguidores de un usuario
+    public function followers(){
+        //un usuario puede tener muchos seguidores
+        // esto va a guardar en la  tabla followes user_is, Follower_id
+        // com los datos  vienen de la tabla  user y nuestratabla se llama followers hay que especicicarla
+        return $this->belongsToMany(User::class, 'followers', 'user_id','follower_id');
+    }
+
+    //almacenar los que seguimos
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImagenController;
@@ -37,5 +38,7 @@ Route::get('/{user:username}/posts/{post}',[PostController::class,'show'])->name
 
 Route::post('/{user:username}/posts/{post}',[ComentarioController::class,'store'])->name('comentarios.store');
 Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+//likes
+Route::post('/posts/{post}/likes',[LikeController::class,'store'])->name('posts.likes.store');
 
 Route::post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');

@@ -22,7 +22,7 @@ class PostController extends Controller
         // auth helper que verifica que usuario esta autenticado actualmente
         //dd(auth()->user());
 
-        $posts = Post::where('user_id',$user->id)->paginate(20);
+        $posts = Post::where('user_id',$user->id)->latest()->paginate(20);
         //dd($posts);
         return view('dashboard',[
             'user' => $user,

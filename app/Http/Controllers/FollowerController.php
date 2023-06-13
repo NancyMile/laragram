@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class FollowerController extends Controller
 {
+    // guardar seguidor
     public function store(User $user){
         // el usuario al que se va a seguir
         //dd($user->username);
@@ -19,4 +20,11 @@ class FollowerController extends Controller
           $user->followers()->attach(auth()->user()->id);
           return back();
     }
+
+    //dejar de seguir
+    public function destroy(User $user){
+        $user->followers()->detach(auth()->user()->id);
+        return back();
+    }
+
 }

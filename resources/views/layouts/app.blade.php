@@ -8,6 +8,7 @@
         <title>Pagina - @yield('titulo')</title>
         @vite('resources/js/app.js')
         @vite('resources/css/app.css')
+        @livewireStyles
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
@@ -47,5 +48,6 @@
         <footer class="text-center font-bold p-5 text-gray-500500 uppercase mt-10">
             Nancy S Todo los derechos reservados. {{ now()->year}}
         </footer>
+        @livewireScripts
     </body>
 </html>
